@@ -47,7 +47,15 @@ class PortfolioController extends Controller
 
     public function detailPortfolio($id)
     {
-        $portfolio = Portfolio::where('id',$id)->first();
-        return view('detailPortfolio',compact('portfolio'));
+        // $portfolio = Portfolio::where('id',$id)->first();
+
+        // Ambil data portofolio berdasarkan ID
+        $portfolio = Portfolio::findOrFail($id);
+
+        // Dapatkan portofolio sebelumnya dan berikutnya
+        $previousPortfolio = Portfolio::where('id', '<', $id)->orderBy('id', 'desc')->first();
+        $nextPortfolio = Portfolio::where('id', '>', $id)->orderBy('id')->first();
+
+        return view('detailPortfolio',compact('portfolio', 'previousPortfolio', 'nextPortfolio'));
     }
 }
