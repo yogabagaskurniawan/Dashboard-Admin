@@ -27,7 +27,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Saya Bagas</h3>
+                <h3><a href="/">Saya Bagas</a></h3>
             </div>
 
             <ul class="list-unstyled components">
